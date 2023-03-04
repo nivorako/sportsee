@@ -10,12 +10,12 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:3000/user/12")
       .then((res) => res.json())
-      .then((actualData) => setData(actualData))
+      .then((actualData) => setData(actualData.data.id))
       .catch((err) => console.log(err.message))
   }, [])
   return (
     <div className="App">
-      id : {data.data.id}
+      id : {data}
       
     </div>
   );
