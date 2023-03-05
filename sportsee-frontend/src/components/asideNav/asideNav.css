@@ -1,0 +1,28 @@
+.asideNav{
+    background-color: #020203;
+    color: white;
+    width: 8rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.asideNav__nav{
+    margin-top: 10rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.asideNav__icon{
+    background-color: white;
+    width: 2rem;
+    margin:  1rem;
+    padding: .5rem;
+    border-radius: 5px;
+}
+.asideNav__text{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-bottom: 0;
+}

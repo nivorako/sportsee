@@ -1,3 +1,4 @@
-h1{
-    color: blueviolet;
+.home__main{
+    display: flex;
+   
 }
