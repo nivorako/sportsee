@@ -1,4 +1,6 @@
 .home__main{
     display: flex;
    
+}.home__content{
+    margin: 0 5rem;
 }
