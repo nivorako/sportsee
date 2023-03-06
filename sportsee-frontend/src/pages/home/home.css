@@ -2,5 +2,8 @@
     display: flex;
    
 }.home__content{
-    margin: 0 5rem;
+    margin: 0 auto;
+}
+.home__link{
+   color: black;
 }

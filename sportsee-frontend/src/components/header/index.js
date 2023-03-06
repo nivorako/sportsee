@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import sportseeLogo from "../../assets/sportseeLogo.png"
 import "./header.css"
 
@@ -9,7 +10,10 @@ export default function Header(){
                 <span className="header__logoTitle">SportSee</span>
             </div>
             <nav className="header__navItems" >
-                <div className="header__navItem">Accueil</div>
+                <NavLink to="/" className="header__homeNavLink">
+                    <div className="header__navItem">Accueil</div>
+                </NavLink>
+                
                 <div className="header__navItem">Profil</div>
                 <div className="header__navItem">Réglage</div>
                 <div className="header__navItem">Communauté</div>
