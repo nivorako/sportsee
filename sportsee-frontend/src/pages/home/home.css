@@ -4,6 +4,9 @@
 }.home__content{
     margin: 0 auto;
 }
+.home__contentTitle-span{
+    color: red;
+}
 .home__link{
    color: black;
 }

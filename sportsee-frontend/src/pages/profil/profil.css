@@ -8,3 +8,10 @@
    flex-direction: column;
    align-items: center;
 }
+.profil__contentTitle-span{
+    color: red;
+}
+.profil__contentItem{
+    width: 800px;
+    
+}

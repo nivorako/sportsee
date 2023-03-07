@@ -11,3 +11,15 @@ export const getUserData = (userId) => {
     name = selected.userInfos.firstName
     return name
 }
+
+export const getUserActivity = (userId) => {
+    const userActivity = []
+    const selected = USER_ACTIVITY.find((user) => user.userId === parseInt(userId))
+    selected.sessions.map(session => {
+        userActivity.push({
+            kilogram: session.kilogram,
+            calories: session.calories
+        })
+    })
+    return userActivity
+}
