@@ -27,8 +27,17 @@ export default function Profil(){
                         <span className="profil__contentTitle-span">  {name}</span>
                     </h1>
                     <div className="profil__contentItems">
-                        
-                        <BarChart userActivity = {userActivity} />
+                        <div className="profil__contentChart">
+                            <BarChart userActivity = {userActivity} />
+                            <div className="profil__contentChart2">
+                                <div className="profil__contentLine">profil__contentLine</div>
+                                <div className="profil__contentRadar">profil__contentRadar</div>
+                                <div className="profil__contentPie">profil__contentPie</div>
+                           </div>
+                        </div>
+                        <div className="profil__contentCalories">
+                            content calories
+                        </div>
                     </div>
                     
                 </div>

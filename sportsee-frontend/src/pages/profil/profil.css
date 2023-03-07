@@ -3,15 +3,43 @@
     display: flex;
 }
 .profil__content{
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .profil__contentTitle-span{
     color: red;
 }
-.profil__contentItem{
-    width: 800px;
-    
+.profil__contentItems{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;   
+}
+.profil__contentChart{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.profil__contentChart2{
+   
+    width: 95%;
+    height: 300px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.profil__contentRadar,
+.profil__contentLine,
+.profil__contentPie{
+    background-color:  rgb(245, 245, 245); 
+    width: 30%;
+}
+
+.profil__contentCalories{
+    background-color:  rgb(245, 245, 245);
+    width: 30%;
 }

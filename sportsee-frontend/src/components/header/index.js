@@ -13,7 +13,7 @@ export default function Header(){
                 <NavLink to="/" className="header__homeNavLink">
                     <div className="header__navItem">Accueil</div>
                 </NavLink>
-                
+
                 <div className="header__navItem">Profil</div>
                 <div className="header__navItem">Réglage</div>
                 <div className="header__navItem">Communauté</div>

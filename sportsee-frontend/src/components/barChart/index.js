@@ -1,8 +1,10 @@
 
 import {Bar} from "react-chartjs-2"
 import { Chart, registerables } from "chart.js"
+
+import "./barChart.css"
+
 Chart.register(...registerables)
-//import Chart from "chart.js/auto"
 
 const options = {
     plugins:{
@@ -68,6 +70,7 @@ export default function BarChart(userActivity){
                     ]
                 }} 
                 options={options}
+                
             />
         </section>
     )
