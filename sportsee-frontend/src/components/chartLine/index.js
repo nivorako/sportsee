@@ -1,74 +1,62 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {useState, useEffect} from "react"
 
-const data = [
+const initialData = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    day: 'L',
+    sessionLength: 20,
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    day: 'M',
+    sessionLength: 23,
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    day: 'M',
+    sessionLength: 30,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    day: 'J',
+    sessionLength: 49,
   },
   {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    day: 'V',
+    sessionLength: 0,
   },
   {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    day: 'S',
+    sessionLength: 0,
   },
   {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    day: 'D',
+    sessionLength: 60,
   },
 ];
 
-export default function ChartLine() {
-  
-    return (
-      <ResponsiveContainer width="100%" height="100%">
-         
-        <LineChart width={300} height={100} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-          <Line 
-            
-            type="monotone" 
-            dataKey="pv" 
-            stroke="#fff" 
-            strokeWidth={1}
-            dot= {false}
-          />
-          <text x={20} y={20} fill="white"  >
-          Activité quotidienne
-          </text>
-          <Tooltip />
-          <Legend verticalAlign="top" height={36} width={200} align="left" margin={{top: 20, left:50, bottom:0, right: 0}} />
-           
-          <XAxis dataKey="name"/>
-          <CartesianGrid stroke="red" strokeDasharray="5 5"/>
-        </LineChart>
-      </ResponsiveContainer>
-    );
+export default function ChartLine(userAverageSession) {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    setData(userAverageSession.userAverageSession)
+  })
+  return (
+    <ResponsiveContainer width="100%" height="100%">
+        
+      <LineChart  data={data} margin={{ top: 30, right: 10, bottom: 5, left: 10 }}>
+        <Line  
+          type="monotone" 
+          dataKey="sessionLength" 
+          stroke="#fff" 
+          strokeWidth={1}
+          dot= {false}
+        />
+        <text x={20} y={20} fill="white" >
+          durée moyenne des sessions
+        </text>
+        <Tooltip />
+        <XAxis dataKey="day" stroke="white" interval={0} axisLine={false}/>
+        <CartesianGrid stroke="red" strokeDasharray="5 5"/>
+      </LineChart>
+    </ResponsiveContainer>
+  );
 }

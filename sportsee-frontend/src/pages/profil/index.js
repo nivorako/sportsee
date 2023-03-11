@@ -1,18 +1,21 @@
 import Header from "../../components/header"
 import AsideNav from "../../components/asideNav"
-import { getUserActivity, getUserData } from "../../services/mock/mockedApi"
+import { getAverageSession, getUserActivity, getUserData } from "../../services/mock/mockedApi"
 
 import { useParams } from "react-router-dom"
 
 import "./profil.css"
 import ChartLine from "../../components/chartLine"
 import ChartBar from "../../components/chartBar"
+import ChartRadar from "../../components/chartRadar"
 
 export default function Profil(){
     const {id} = useParams()
    
     const name = getUserData(id)
     const userActivity =  getUserActivity(id)
+    const userAverageSession = getAverageSession(id)
+    
     return(
         <div className="profil">
             <Header />
@@ -31,9 +34,11 @@ export default function Profil(){
                             </div>
                             <div className="profil__contentChart2">
                                 <div className="profil__contentLine">
-                                    <ChartLine />
+                                    <ChartLine userAverageSession={userAverageSession}/>
                                 </div>
-                                <div className="profil__contentRadar">profil__contentRadar</div>
+                                <div className="profil__contentRadar">
+                                    <ChartRadar />
+                                </div>
                                 <div className="profil__contentPie">profil__contentPie</div>
                            </div>
                         </div>

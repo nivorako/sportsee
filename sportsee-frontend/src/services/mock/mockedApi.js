@@ -21,10 +21,47 @@ export const getUserActivity = (userId) => {
             poids: session.kilogram,
             calories: session.calories
         })
+        return userActivity
     })
     return userActivity
 }
 
+
+
 export const getAverageSession = (userId) => {
-    
+    const averageSession = [
+        {
+          day: 'L',
+          sessionLength: 0,
+        },
+        {
+          day: 'M',
+          sessionLength: 0,
+        },
+        {
+          day: 'M',
+          sessionLength: 0,
+        },
+        {
+          day: 'J',
+          sessionLength: 0,
+        },
+        {
+          day: 'V',
+          sessionLength:0,
+        },
+        {
+          day: 'S',
+          sessionLength:0,
+        },
+        {
+          day: 'D',
+          sessionLength: 0,
+        },
+      ]
+    const selected = USER_AVERAGE_SESSIONS.find((user) => user.userId === parseInt(userId))
+    for(let index in selected.sessions){
+        averageSession[index].sessionLength = selected.sessions[index].sessionLength
+    }
+    return averageSession
 }
