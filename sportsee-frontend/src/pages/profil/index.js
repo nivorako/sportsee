@@ -1,6 +1,11 @@
 import Header from "../../components/header"
 import AsideNav from "../../components/asideNav"
-import { getAverageSession, getUserActivity, getUserData } from "../../services/mock/mockedApi"
+import { 
+    getAverageSession, 
+    getUserActivity, 
+    getUserData,  
+    getUserPerformance
+} from "../../services/mock/mockedApi"
 
 import { useParams } from "react-router-dom"
 
@@ -15,7 +20,7 @@ export default function Profil(){
     const name = getUserData(id)
     const userActivity =  getUserActivity(id)
     const userAverageSession = getAverageSession(id)
-    
+    const userPerformance = getUserPerformance(id)
     return(
         <div className="profil">
             <Header />
@@ -37,7 +42,7 @@ export default function Profil(){
                                     <ChartLine userAverageSession={userAverageSession}/>
                                 </div>
                                 <div className="profil__contentRadar">
-                                    <ChartRadar />
+                                    <ChartRadar userPerformance={userPerformance} />
                                 </div>
                                 <div className="profil__contentPie">profil__contentPie</div>
                            </div>

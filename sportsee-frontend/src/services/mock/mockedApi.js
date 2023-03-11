@@ -65,3 +65,24 @@ export const getAverageSession = (userId) => {
     }
     return averageSession
 }
+
+export const getUserPerformance = (userId) => {
+    const userPerformance = []
+    const initialUserPerformance = [
+        { kind: 'Cardio', value:  0 },
+        { kind: 'Energie', value: 0 },
+        { kind: 'Endurance', value: 0},
+        { kind: 'Force', value: 0 },
+        { kind: 'Vitesse', value: 0 },
+        { kind: 'Intensité', value: 0, }
+      ];
+    const selected = USER_PERFORMANCE.find((user) => user.userId === parseInt(userId))
+    //console.log("selected :", selected)
+    for (let item of selected.data){
+        userPerformance.push({
+           kind: initialUserPerformance[item.kind - 1].kind,
+           value: item.value
+        })
+    }
+    return userPerformance
+}

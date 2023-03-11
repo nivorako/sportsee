@@ -2,43 +2,43 @@ import React from 'react';
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import {useState, useEffect} from "react"
 
-const initialData = [
-  {
-    day: 'L',
-    sessionLength: 20,
-  },
-  {
-    day: 'M',
-    sessionLength: 23,
-  },
-  {
-    day: 'M',
-    sessionLength: 30,
-  },
-  {
-    day: 'J',
-    sessionLength: 49,
-  },
-  {
-    day: 'V',
-    sessionLength: 0,
-  },
-  {
-    day: 'S',
-    sessionLength: 0,
-  },
-  {
-    day: 'D',
-    sessionLength: 60,
-  },
-];
+// const initialData = [
+//   {
+//     day: 'L',
+//     sessionLength: 20,
+//   },
+//   {
+//     day: 'M',
+//     sessionLength: 23,
+//   },
+//   {
+//     day: 'M',
+//     sessionLength: 30,
+//   },
+//   {
+//     day: 'J',
+//     sessionLength: 49,
+//   },
+//   {
+//     day: 'V',
+//     sessionLength: 0,
+//   },
+//   {
+//     day: 'S',
+//     sessionLength: 0,
+//   },
+//   {
+//     day: 'D',
+//     sessionLength: 60,
+//   },
+// ];
 
 export default function ChartLine(userAverageSession) {
   const [data, setData] = useState([])
 
   useEffect(() => {
     setData(userAverageSession.userAverageSession)
-  })
+  }, [userAverageSession.userAverageSession])
   return (
     <ResponsiveContainer width="100%" height="100%">
         

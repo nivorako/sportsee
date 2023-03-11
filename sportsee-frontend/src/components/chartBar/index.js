@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { useEffect, useState } from 'react'
 
 import "./chartBar.css"
@@ -8,7 +8,7 @@ export default function ChartBar({userActivity}) {
   const [data, setData] = useState([])
   useEffect(() => {
     setData(userActivity)
-  })
+  }, [userActivity])
 
     return (  
       <ResponsiveContainer width="100%" height="100%">
