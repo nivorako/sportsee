@@ -15,9 +15,10 @@ export const getUserData = (userId) => {
 export const getUserActivity = (userId) => {
     const userActivity = []
     const selected = USER_ACTIVITY.find((user) => user.userId === parseInt(userId))
-    selected.sessions.map(session => {
+    selected.sessions.map((session, index) => {
         userActivity.push({
-            kilogram: session.kilogram,
+            name: index + 1,
+            poids: session.kilogram,
             calories: session.calories
         })
     })
