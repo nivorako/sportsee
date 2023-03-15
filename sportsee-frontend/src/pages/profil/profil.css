@@ -43,9 +43,37 @@
     background-color: #282D30;
 }
 .profil__contentLine{
+    position: relative;
     background-color: red;
 }
-
+.profil__contentLineTitle{
+    position: absolute;
+    top:5px;
+    left: 10px;
+    color: white;
+}
+.profil__contentLineTitle p{
+    margin: 0;
+    text-align: left;
+}
+.profil__contentPie{
+    position: relative;
+}
+.profil__contentPieTitle{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.profil__contentPieLabel{
+    
+    width: 100px;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+}
+.profil__contentPieLabel p{
+    margin: 0;
+}
 .profil__contentCalories{
     background-color:  rgb(245, 245, 245);
     width: 30%;

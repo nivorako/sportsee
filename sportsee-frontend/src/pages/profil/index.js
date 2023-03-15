@@ -9,10 +9,12 @@ import {
 
 import { useParams } from "react-router-dom"
 
-import "./profil.css"
 import ChartLine from "../../components/chartLine"
 import ChartBar from "../../components/chartBar"
 import ChartRadar from "../../components/chartRadar"
+import ChartPie from "../../components/chartPie"
+
+import "./profil.css"
 
 export default function Profil(){
     const {id} = useParams()
@@ -39,12 +41,25 @@ export default function Profil(){
                             </div>
                             <div className="profil__contentChart2">
                                 <div className="profil__contentLine">
+                                    <div className="profil__contentLineTitle">
+                                        <p>Durée moyenne </p>
+                                        <p>des sessions</p>
+                                    </div>
+                                    
                                     <ChartLine userAverageSession={userAverageSession}/>
                                 </div>
                                 <div className="profil__contentRadar">
                                     <ChartRadar userPerformance={userPerformance} />
                                 </div>
-                                <div className="profil__contentPie">profil__contentPie</div>
+                                <div className="profil__contentPie">
+                                    <p className="profil__contentPieTitle">Score</p>
+                                    <div className="profil__contentPieLabel">
+                                        <p>coco</p>
+                                        <p>de votre objectif</p>
+                                    </div>
+                                    <ChartPie />
+                                    
+                                </div>
                            </div>
                         </div>
                         <div className="profil__contentCalories">

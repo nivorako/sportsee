@@ -50,9 +50,9 @@ export default function ChartLine(userAverageSession) {
           strokeWidth={1}
           dot= {false}
         />
-        <text x={20} y={20} fill="white" >
+        {/* <text x={20} y={20} fill="white" >
           durée moyenne des sessions
-        </text>
+        </text> */}
         <Tooltip />
         <XAxis dataKey="day" stroke="white" interval={0} axisLine={false}/>
         <CartesianGrid stroke="red" strokeDasharray="5 5"/>

@@ -26,8 +26,6 @@ export const getUserActivity = (userId) => {
     return userActivity
 }
 
-
-
 export const getAverageSession = (userId) => {
     const averageSession = [
         {
