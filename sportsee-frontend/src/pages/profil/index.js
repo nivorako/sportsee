@@ -19,10 +19,12 @@ import "./profil.css"
 export default function Profil(){
     const {id} = useParams()
    
-    const name = getUserData(id)
+    const user = getUserData(id)
     const userActivity =  getUserActivity(id)
     const userAverageSession = getAverageSession(id)
-    const userPerformance = getUserPerformance(id)
+    const userPerformance = getUserPerformance(id) 
+
+    const score = user.score * 100
     return(
         <div className="profil">
             <Header />
@@ -31,7 +33,7 @@ export default function Profil(){
                 <div className="profil__content">
                     <h1 className="profil__contentTitle">
                         Bonjour
-                        <span className="profil__contentTitle-span">  {name}</span>
+                        <span className="profil__contentTitle-span"> {user.userInfos.firstName} </span>
                     </h1>
                     <p className="profil__contentTitle">Feliciation! vous avez explosé vos objectifs hier</p>
                     <div className="profil__contentItems">
@@ -54,10 +56,10 @@ export default function Profil(){
                                 <div className="profil__contentPie">
                                     <p className="profil__contentPieTitle">Score</p>
                                     <div className="profil__contentPieLabel">
-                                        <p>coco</p>
+                                        <p>{score} %</p>
                                         <p>de votre objectif</p>
                                     </div>
-                                    <ChartPie />
+                                    <ChartPie  score={score}/>
                                     
                                 </div>
                            </div>

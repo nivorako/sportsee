@@ -5,11 +5,9 @@ import {
     USER_PERFORMANCE
 } from "./mockedData"
 
-export const getUserData = (userId) => {
-    let name = ""
+export const getUserData = (userId) => {   
     const selected = USER_MAIN_DATA.find((user) => user.id === parseInt(userId))
-    name = selected.userInfos.firstName
-    return name
+    return selected
 }
 
 export const getUserActivity = (userId) => {

@@ -1,12 +1,12 @@
 import React from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
-const data = [
-  { name: 'Group A', value: 12, fillColor: "red" },
-  { name: 'Group B', value: 88, fillColor: "transparent" }
-]
-
-export default function ChartPie() {
+export default function ChartPie({score}) {
+   
+    const data = [
+        { name: 'Group A', value: score, fillColor: "red" },
+        { name: 'Group B', value: 100 - score, fillColor: "transparent" }
+      ]
     return (
         <ResponsiveContainer>    
             <PieChart width={400} height={400} >

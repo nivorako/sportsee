@@ -7,7 +7,8 @@ import { getUserData } from "../../services/mock/mockedApi"
 import "./home.css"
 
 export default function Home(){
-    
+    const user1 = getUserData(12)
+    const user2 = getUserData(18)
     return(
         <div className="home">
             <Header />
@@ -23,10 +24,10 @@ export default function Home(){
                     </p>
                     <p>Cliquez sur id pour acceder à votre profil:</p>
                     <Link to="/Profil/12"className="home__link">
-                        <p>{getUserData(12)}</p>
+                        <p>{user1.userInfos.firstName}</p>
                     </Link>
                     <Link to="/Profil/18"className="home__link">
-                        <p>{getUserData(18)}</p>
+                        <p>{user2.userInfos.firstName}</p>
                     </Link>
                 </div>
             </main>
