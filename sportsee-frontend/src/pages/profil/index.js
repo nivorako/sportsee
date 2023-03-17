@@ -1,5 +1,11 @@
 import Header from "../../components/header"
 import AsideNav from "../../components/asideNav"
+
+import ChartLine from "../../components/chartLine"
+import ChartBar from "../../components/chartBar"
+import ChartRadar from "../../components/chartRadar"
+import ChartPie from "../../components/chartPie"
+
 import { 
     getAverageSession, 
     getUserActivity, 
@@ -7,14 +13,16 @@ import {
     getUserPerformance
 } from "../../services/mock/mockedApi"
 
-import { useParams } from "react-router-dom"
-
-import ChartLine from "../../components/chartLine"
-import ChartBar from "../../components/chartBar"
-import ChartRadar from "../../components/chartRadar"
-import ChartPie from "../../components/chartPie"
-
 import "./profil.css"
+
+import cal from "../../assets/cal.png"
+import proteine from "../../assets/proteine.png"
+import glucide from "../../assets/glucide.png"
+import lipide from "../../assets/lipide.png"
+import lipide2 from "../../assets/lipide2.png"
+import lipide3 from "../../assets/lipide3.png"
+
+import { useParams } from "react-router-dom"
 
 export default function Profil(){
     const {id} = useParams()
@@ -35,7 +43,9 @@ export default function Profil(){
                         Bonjour
                         <span className="profil__contentTitle-span"> {user.userInfos.firstName} </span>
                     </h1>
-                    <p className="profil__contentTitle">Feliciation! vous avez explosé vos objectifs hier</p>
+                    <p className="profil__contentTitle">
+                        Feliciation! vous avez explosé vos objectifs hier
+                    </p>
                     <div className="profil__contentItems">
                         <div className="profil__contentChart">
                             <div className="chartBar">
@@ -64,8 +74,56 @@ export default function Profil(){
                                 </div>
                            </div>
                         </div>
-                        <div className="profil__contentCalories">
-                            content calories
+                        <div className="profil__contentAside">
+                            <div className="profil__contentAside-elt">
+                                <div className="profil__contentAside-elt-icon red">
+                                    <img src={cal} alt=""/>
+                                </div>
+                                
+                                <div>
+                                    <div className="profil__contentAside-elt-tag">
+                                        calories number
+                                    </div>
+                                    <div>Calories</div>
+                                </div>
+                            </div>
+                            <div className="profil__contentAside-elt">
+                                <div className="profil__contentAside-elt-icon blue">
+                                    <img src={proteine} alt=""></img>
+                                </div>
+                                
+                                <div>
+                                    <div className="profil__contentAside-elt-tag">
+                                        Protéines number
+                                    </div>
+                                    <div>Protéines</div>
+                                </div>
+                            </div>
+                            <div className="profil__contentAside-elt">
+                                <div className="profil__contentAside-elt-icon brown">
+                                    <img src={glucide} alt=""></img>
+                                </div>
+                                <div>
+                                    <div className="profil__contentAside-elt-tag">
+                                        Glucides number
+                                    </div>
+                                    <div>Glucides</div>
+                                </div>
+                            </div>
+                            <div className="profil__contentAside-elt">
+                                <div className="profil__contentAside-elt-icon fuschia">
+                                    <img src={lipide} alt=""/>
+                                    <img src={lipide2} alt=""/>
+                                    <img src={lipide3} alt=""/>
+                                </div>
+                                
+                                <div>
+                                    <div className="profil__contentAside-elt-tag">
+                                        Lipides number
+                                    </div>
+                                    <div>Lipides</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     

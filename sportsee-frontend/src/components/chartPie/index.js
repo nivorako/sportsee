@@ -1,11 +1,11 @@
 import React from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 export default function ChartPie({score}) {
    
     const data = [
-        { name: 'Group A', value: score, fillColor: "red" },
-        { name: 'Group B', value: 100 - score, fillColor: "transparent" }
+        { name: 'showData', value: score, fillColor: "red" },
+        { name: 'hideData', value: 100 - score, fillColor: "transparent" }
       ]
     return (
         <ResponsiveContainer>    

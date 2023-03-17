@@ -22,7 +22,7 @@ import {useState, useEffect} from "react"
           <PolarAngleAxis dataKey="kind" stroke="#FFF" tick={{ fontSize: 11 }}/>
           <PolarRadiusAxis axisLine={false}  tick={false}/>
           <Tooltip />
-          <Radar name="value" dataKey="value" stroke="red" fill="red" fillOpacity={0.5}/>
+          <Radar name="value" dataKey="value" stroke="red" fill="red" fillOpacity={0.5} />
         </RadarChart>
       </ResponsiveContainer>
     )
