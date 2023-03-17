@@ -33,6 +33,7 @@ export default function Profil(){
     const userPerformance = getUserPerformance(id) 
 
     const score = user.score * 100
+   
     return(
         <div className="profil">
             <Header />
@@ -82,7 +83,7 @@ export default function Profil(){
                                 
                                 <div>
                                     <div className="profil__contentAside-elt-tag">
-                                        calories number
+                                        {user.keyData.calorieCount}
                                     </div>
                                     <div>Calories</div>
                                 </div>
@@ -94,7 +95,7 @@ export default function Profil(){
                                 
                                 <div>
                                     <div className="profil__contentAside-elt-tag">
-                                        Protéines number
+                                    {user.keyData.proteinCount}
                                     </div>
                                     <div>Protéines</div>
                                 </div>
@@ -105,7 +106,7 @@ export default function Profil(){
                                 </div>
                                 <div>
                                     <div className="profil__contentAside-elt-tag">
-                                        Glucides number
+                                    {user.keyData.carbohydrateCount}
                                     </div>
                                     <div>Glucides</div>
                                 </div>
@@ -119,7 +120,7 @@ export default function Profil(){
                                 
                                 <div>
                                     <div className="profil__contentAside-elt-tag">
-                                        Lipides number
+                                    {user.keyData.lipidCount}
                                     </div>
                                     <div>Lipides</div>
                                 </div>
