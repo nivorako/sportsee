@@ -11,23 +11,23 @@ export default function ChartBar({userActivity}) {
   }, [userActivity])
 
     return (  
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="90%">
         <BarChart
-          width={500}
+          width={400}
           height={300}
           data={data}
           margin={{
-            top: 20,
+            top: 70,
             right: 30,
             left: 20,
-            bottom: 5,
+            bottom: 0,
           }}          
         >
           <CartesianGrid strokeDasharray="1 1" vertical="" />
           <XAxis dataKey="name" />  
           <Tooltip />       
-          <Bar yAxisId="kg" dataKey="poids" fill="red" barSize={10} radius={[10,10,0,0]}/>
-          <Bar yAxisId="cal" dataKey="calories" fill="black" barSize={10}  radius={[10,10,0,0]}/>
+          <Bar yAxisId="kg" dataKey="poids" fill="red" barSize={7} radius={[10,10,0,0]}/>
+          <Bar yAxisId="cal" dataKey="calories" fill="black" barSize={7}  radius={[10,10,0,0]}/>
         </BarChart>
       </ResponsiveContainer>
       

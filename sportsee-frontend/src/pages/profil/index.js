@@ -50,8 +50,12 @@ export default function Profil(){
                     <div className="contentItems">
                         <div className="contentChart">
                             <section className="chartBar">
-                                <div>
-                                    
+                                <div className="chartBar__title">
+                                    <h2>Activité quotidienne</h2>
+                                    <ul>
+                                         <li>poids (kg)</li>
+                                        <li>Calories brulées (kcal)</li>
+                                    </ul>
                                 </div>
                                 <ChartBar userActivity = {userActivity} />
                             </section>
