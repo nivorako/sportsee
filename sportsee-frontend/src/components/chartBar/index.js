@@ -21,17 +21,11 @@ export default function ChartBar({userActivity}) {
             right: 30,
             left: 20,
             bottom: 5,
-          }}
-          
+          }}          
         >
-          <text x={100} y={40} fill="black"  >
-          Activité quotidienne
-          </text>
           <CartesianGrid strokeDasharray="1 1" vertical="" />
-          <XAxis dataKey="name" />
-         
-          <Tooltip />
-          <Legend verticalAlign="top" height={36} align="right" />
+          <XAxis dataKey="name" />  
+          <Tooltip />       
           <Bar yAxisId="kg" dataKey="poids" fill="red" barSize={10} radius={[10,10,0,0]}/>
           <Bar yAxisId="cal" dataKey="calories" fill="black" barSize={10}  radius={[10,10,0,0]}/>
         </BarChart>
