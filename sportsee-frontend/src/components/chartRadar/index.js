@@ -1,11 +1,13 @@
 import { Radar,  RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, CartesianGrid } from 'recharts';
 import {useState, useEffect} from "react"
+
+import PropTypes from "prop-types"
   
-  export default function ChartRadar({userPerformance}){
+  export default function ChartRadar(props){
     const [data, setData] = useState([])
     useEffect(() => {
-      setData(userPerformance)
-    }, [userPerformance] )
+      setData(props.userPerformance)
+    }, [props.userPerformance] )
    
     return(
       <ResponsiveContainer width="100%" height="100%">
@@ -27,3 +29,6 @@ import {useState, useEffect} from "react"
     )
   }
 
+ChartRadar.propTypes = {
+  userPerformance: PropTypes.array.isRequired,
+}

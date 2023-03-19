@@ -1,11 +1,13 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
-export default function ChartPie({score}) {
+import PropTypes from "prop-types"
+
+export default function ChartPie(props) {
    
     const data = [
-        { name: 'showData', value: score, fillColor: "red" },
-        { name: 'hideData', value: 100 - score, fillColor: "transparent" }
+        { name: 'showData', value: props.score, fillColor: "red" },
+        { name: 'hideData', value: 100 - props.score, fillColor: "transparent" }
       ]
     return (
         <ResponsiveContainer>    
@@ -28,4 +30,9 @@ export default function ChartPie({score}) {
             </PieChart>
         </ResponsiveContainer>
     );
+}
+
+
+ChartPie.propTypes = {
+    score: PropTypes.number.isRequired,
 }

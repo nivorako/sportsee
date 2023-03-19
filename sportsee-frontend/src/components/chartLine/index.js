@@ -1,45 +1,17 @@
 import React from 'react';
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import {useState, useEffect} from "react"
+import PropTypes from "prop-types"
 
 import "./chartLine.css"
 
-// const initialData = [
-//   {
-//     day: 'L',
-//     sessionLength: 20,
-//   },
-//   {
-//     day: 'M',
-//     sessionLength: 23,
-//   },
-//   {
-//     day: 'M',
-//     sessionLength: 30,
-//   },
-//   {
-//     day: 'J',
-//     sessionLength: 49,
-//   },
-//   {
-//     day: 'V',
-//     sessionLength: 0,
-//   },
-//   {
-//     day: 'S',
-//     sessionLength: 0,
-//   },
-//   {
-//     day: 'D',
-//     sessionLength: 60,
-//   },
-// ];
+export default function ChartLine(props) {
 
-export default function ChartLine(userAverageSession) {
   const [data, setData] = useState([])
   useEffect(() => {
-    setData(userAverageSession.userAverageSession)
-  }, [userAverageSession.userAverageSession])
+    setData(props.userAverageSession)
+  }, [props.userAverageSession])
+
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -51,6 +23,7 @@ export default function ChartLine(userAverageSession) {
     }
     return null;
   };
+  
   return (
     <ResponsiveContainer width="100%" height="100%">
         
@@ -68,4 +41,8 @@ export default function ChartLine(userAverageSession) {
       </LineChart>
     </ResponsiveContainer>
   );
+}
+
+ChartLine.propTypes = {
+  userAverageSession: PropTypes.array.isRequired,
 }

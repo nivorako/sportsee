@@ -31,9 +31,8 @@ export default function Profil(){
     const userActivity =  getUserActivity(id)
     const userAverageSession = getAverageSession(id)
     const userPerformance = getUserPerformance(id) 
-
     const score = user.score * 100
-   
+    console.log('userPerformance:', userPerformance)
     return(
         <div className="profil">
             <Header />

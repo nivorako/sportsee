@@ -5,11 +5,12 @@ import PropTypes from 'prop-types'
 
 import "./chartBar.css"
 
-export default function ChartBar({userActivity}) {
+export default function ChartBar(props) {
+  
   const [data, setData] = useState([])
   useEffect(() => {
-    setData(userActivity)
-  }, [userActivity])
+    setData(props.userActivity)
+  }, [props.userActivity])
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -47,4 +48,6 @@ export default function ChartBar({userActivity}) {
   );
 }
 
-
+ChartBar.propTypes = {
+  userActivity: PropTypes.array.isRequired,
+}
