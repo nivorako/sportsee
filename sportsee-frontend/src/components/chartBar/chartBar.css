@@ -1,0 +1,9 @@
+.custom-tooltip{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: red;
+    border: red thin solid;
+    width: 50px;
+    height: 100px;
+}
