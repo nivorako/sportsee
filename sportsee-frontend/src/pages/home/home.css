@@ -1,12 +1,12 @@
-.home__main{
+.home__main {
     display: flex;
-   
-}.home__content{
+}
+.home__content {
     margin: 0 auto;
 }
-.home__contentTitle-span{
+.home__contentTitle-span {
     color: red;
 }
-.home__link{
-   color: black;
+.home__link {
+    color: black;
 }

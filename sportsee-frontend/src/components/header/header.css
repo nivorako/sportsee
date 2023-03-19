@@ -1,11 +1,11 @@
-a{
+a {
     text-decoration: none;
     color: white;
 }
-a.active{
+a.active {
     border-bottom: white solid 1px;
 }
-.header{
+.header {
     background-color: #020203;
     padding: 1rem;
     display: flex;
@@ -14,20 +14,19 @@ a.active{
     font-weight: bold;
     font-size: var(--font-size);
 }
-.header__logo{
+.header__logo {
     display: flex;
     align-items: center;
 }
-.header__logoLogo{
-   background-color: red;
-   border-radius: 50%;
-   
+.header__logoLogo {
+    background-color: red;
+    border-radius: 50%;
 }
-.header__logoTitle{
+.header__logoTitle {
     color: red;
     margin: 0 1rem;
 }
-.header__navItems{
+.header__navItems {
     width: 100%;
     color: white;
     display: flex;
