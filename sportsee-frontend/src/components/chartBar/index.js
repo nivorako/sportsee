@@ -1,6 +1,7 @@
 import React from 'react'
-import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, BoxPlot, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 import "./chartBar.css"
 
@@ -9,19 +10,20 @@ export default function ChartBar({userActivity}) {
   useEffect(() => {
     setData(userActivity)
   }, [userActivity])
+
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
-          <p>{`${payload[0].value} g`}</p>
-          <p>{`${payload[1].value}cal`}</p>
+          <p>{`${payload[0].value} kg`}</p>
+          <p>{`${payload[1].value} cal`}</p>
         </div>
       );
     }
     return null;
   };
-  
-  return (  
+
+  return  (  
     <ResponsiveContainer width="100%" height="90%">
       <BarChart
         width={400}
@@ -36,11 +38,13 @@ export default function ChartBar({userActivity}) {
       >
           <CartesianGrid strokeDasharray="1 1" vertical="" />
           <XAxis dataKey="name" />  
+          
           <Tooltip content={<CustomTooltip />}/>       
           <Bar yAxisId="kg" dataKey="poids" fill="red" barSize={7} radius={[10,10,0,0]}/>  
           <Bar yAxisId="cal" dataKey="calories" fill="black" barSize={7}  radius={[10,10,0,0]}/>
       </BarChart>
     </ResponsiveContainer>
-    
   );
 }
+
+

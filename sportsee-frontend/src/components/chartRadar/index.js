@@ -1,4 +1,4 @@
-import { Radar,  RadarChart,Tooltip, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, CartesianGrid } from 'recharts';
+import { Radar,  RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, CartesianGrid } from 'recharts';
 import {useState, useEffect} from "react"
   
   export default function ChartRadar({userPerformance}){
@@ -21,7 +21,6 @@ import {useState, useEffect} from "react"
           <PolarGrid stroke="#FFF" gridType="polygon"/>
           <PolarAngleAxis dataKey="kind" stroke="#FFF" tick={{ fontSize: 11 }}/>
           <PolarRadiusAxis axisLine={false}  tick={false}/>
-          <Tooltip />
           <Radar name="value" dataKey="value" stroke="red" fill="red" fillOpacity={0.5} />
         </RadarChart>
       </ResponsiveContainer>

@@ -77,8 +77,7 @@ export default function Profil(){
                                         <p>{score} %</p>
                                         <p>de votre objectif</p>
                                     </div>
-                                    <ChartPie  score={score}/>
-                                    
+                                    <ChartPie  score={score}/>                                  
                                 </div>
                            </div>
                         </div>

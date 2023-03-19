@@ -15,7 +15,7 @@ export default function ChartPie({score}) {
                     cx="50%"
                     cy="50%"
                     innerRadius={60}
-                    outerRadius={80}
+                    outerRadius={70}
                     startAngle={90}
                     endAngle={450}
                     fill="#888000"
