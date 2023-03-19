@@ -2,6 +2,8 @@ import React from 'react';
 import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import {useState, useEffect} from "react"
 
+import "./chartLine.css"
+
 // const initialData = [
 //   {
 //     day: 'L',
@@ -35,10 +37,20 @@ import {useState, useEffect} from "react"
 
 export default function ChartLine(userAverageSession) {
   const [data, setData] = useState([])
-
   useEffect(() => {
     setData(userAverageSession.userAverageSession)
   }, [userAverageSession.userAverageSession])
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-lineTooltip">
+          <p>{`${payload[0].value}min`}</p>
+          
+        </div>
+      );
+    }
+    return null;
+  };
   return (
     <ResponsiveContainer width="100%" height="100%">
         
@@ -50,10 +62,7 @@ export default function ChartLine(userAverageSession) {
           strokeWidth={1}
           dot= {false}
         />
-        {/* <text x={20} y={20} fill="white" >
-          durée moyenne des sessions
-        </text> */}
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />}/>
         <XAxis dataKey="day" stroke="white" interval={0} axisLine={false}/>
         <CartesianGrid stroke="red" strokeDasharray="5 5"/>
       </LineChart>

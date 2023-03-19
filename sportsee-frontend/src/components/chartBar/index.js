@@ -9,7 +9,7 @@ export default function ChartBar({userActivity}) {
   useEffect(() => {
     setData(userActivity)
   }, [userActivity])
-  const CustomTooltip = ({ active, payload, label }) => {
+  const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
