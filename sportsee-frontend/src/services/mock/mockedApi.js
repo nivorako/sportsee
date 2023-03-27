@@ -10,7 +10,7 @@ import {
  * @param {string} userId user's id
  * @returns {{
  *  id:number,
- *  userInfos:{firstname: string,
+ *  userInfos:{firstName: string,
  *              lastName: string},
  *  score: number,
  *  keyData:{calorieCount: number,

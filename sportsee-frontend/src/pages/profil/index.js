@@ -23,31 +23,44 @@ import lipide2 from "../../assets/lipide2.png";
 import lipide3 from "../../assets/lipide3.png";
 
 import { useParams } from "react-router-dom";
+import  useFetch  from "../../services/hooks/fetchApi";
+
+/**
+ * 
+ * @returns 
+ */
 
 export default function Profil() {
     const { id } = useParams();
-
-    const user = getUserData(id);
+    const userData = useFetch(id);
+    console.log("user data :", userData.data);
+    //const user = getUserData(id);
     const userActivity = getUserActivity(id);
     const userAverageSession = getAverageSession(id);
     const userPerformance = getUserPerformance(id);
-    const score = user.score * 100;
-    //console.log('userPerformance:', userPerformance)
+    //const score = user.score * 100;
+    
+    if(userData.error){
+        return <div>Une erreur est apparue</div>;
+    }
+    if(!userData.isLoading){
+        return (<div>Loader</div>);
+    }
     return (
         <div className="profil">
             <Header />
             <main className="main">
                 <AsideNav />
                 <div className="content">
-                    <h1 className="contentTitle">
-                        Bonjour
-                        <span className="contentTitle-span">
-                            {" "}
-                            {user.userInfos.firstName}{" "}
-                        </span>
-                    </h1>
+                    {userData.data.userInfos && (
+                        <h1 className="contentTitle">
+                            Bonjour                 
+                            <span className="contentTitle-span">
+                            {userData.data.userInfos.firstName}
+                            </span>
+                        </h1>)}
                     <p className="contentTitle">
-                        Feliciation! vous avez explosé vos objectifs hier
+                        Feliciation! vous avez explosé vos objectifs hier 👋
                     </p>
                     <div className="contentItems">
                         <div className="contentChart">
@@ -80,14 +93,15 @@ export default function Profil() {
                                 <div className="contentPie">
                                     <p className="contentPieTitle">Score</p>
                                     <div className="contentPieLabel">
-                                        <p>{score} %</p>
+                                        {/* <p>{score} %</p> */}
                                         <p>de votre objectif</p>
                                     </div>
-                                    <ChartPie score={score} />
+                                    {/* <ChartPie score={score} /> */}
                                 </div>
                             </div>
                         </div>
-                        <div className="contentAside">
+                        
+                        {/* <div className="contentAside">
                             <div className="contentAside-elt">
                                 <div className="contentAside-elt-icon red">
                                     <img src={cal} alt="" />
@@ -137,10 +151,12 @@ export default function Profil() {
                                     <div>Lipides</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </main>
         </div>
     );
+   
+    
 }
