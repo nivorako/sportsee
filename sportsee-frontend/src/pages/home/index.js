@@ -18,8 +18,7 @@ export default function Home() {
                     <h1 className="home__contentTitle">
                         Bienvenu(e) sur
                         <span className="home__contentTitle-span">
-                            {" "}
-                            SportSee
+                            SportSee test
                         </span>
                     </h1>
                     <p className="home__contentParagraph">
