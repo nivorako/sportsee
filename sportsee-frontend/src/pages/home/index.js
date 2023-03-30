@@ -9,6 +9,7 @@ import "./home.css";
 export default function Home() {
     const user1 = getUserData(12);
     const user2 = getUserData(18);
+    
     return (
         <div className="home">
             <Header />

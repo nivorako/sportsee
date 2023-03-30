@@ -32,18 +32,18 @@ import  useFetch  from "../../services/hooks/fetchApi";
 
 export default function Profil() {
     const { id } = useParams();
-    const userData = useFetch(id);
-    console.log("user data :", userData.data);
-    //const user = getUserData(id);
+    const {data, isLoading, error} = useFetch(id);
+    const user = getUserData(id);
+    console.log("user data :", data.data);
     const userActivity = getUserActivity(id);
     const userAverageSession = getAverageSession(id);
     const userPerformance = getUserPerformance(id);
     //const score = user.score * 100;
     
-    if(userData.error){
+    if(error){
         return <div>Une erreur est apparue</div>;
     }
-    if(!userData.isLoading){
+    if(isLoading){
         return (<div>Loader</div>);
     }
     return (
@@ -52,13 +52,13 @@ export default function Profil() {
             <main className="main">
                 <AsideNav />
                 <div className="content">
-                    {userData.data.userInfos && (
+                    
                         <h1 className="contentTitle">
                             Bonjour                 
                             <span className="contentTitle-span">
-                            {userData.data.userInfos.firstName}
+                            {data.data.userInfos.firstName}
                             </span>
-                        </h1>)}
+                        </h1>
                     <p className="contentTitle">
                         Feliciation! vous avez explosé vos objectifs hier 👋
                     </p>

@@ -1,25 +1,7 @@
-
 import {useEffect, useState} from "react";
 
-
-
 export default function useFetch(id) { 
-    const initialData = {
-        id: 0,
-        userInfos: {
-            firstName: "",
-            lastName: "",
-            age: 0,
-        },
-        score: 0,
-        keyData: {
-            calorieCount: 0,
-            proteinCount: 0,
-            carbohydrateCount: 0,
-            lipidCount: 0,
-        },
-    };
-    const [data, setData] = useState(initialData);
+    const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -29,7 +11,7 @@ export default function useFetch(id) {
             .then(res => res.json())
             .then(data => {
                 setData(data);
-                setIsLoading(true);
+                setIsLoading(false);
             })
             .catch((err) => {
                 console.error('An error has occured : ', err);
