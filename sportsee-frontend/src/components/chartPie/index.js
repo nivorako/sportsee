@@ -4,11 +4,12 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
 
 export default function ChartPie(props) {
+    //console.log('props :', props.score)
     const data = [
         { name: "showData", value: props.score, fillColor: "red" },
         {
             name: "hideData",
-            value: 100 - props.score,
+            value: 1 - props.score,
             fillColor: "transparent",
         },
     ];
@@ -23,12 +24,12 @@ export default function ChartPie(props) {
                     outerRadius={70}
                     startAngle={90}
                     endAngle={450}
-                    fill="#888000"
+                    fill="888000"
                     dataKey="value"
                 >
                     {data.map((entry, index) => (
                         <Cell
-                            key={`cell-${index}`}
+                            key={index}
                             fill={entry.fillColor}
                             cornerRadius="50%"
                         />

@@ -33,8 +33,7 @@ import  useFetch  from "../../services/hooks/fetchApi";
 export default function Profil() {
     const { id } = useParams();
     const {data, isLoading, error} = useFetch(id);
-    const user = getUserData(id);
-    console.log("user data :", data.data);
+    //const user = getUserData(id);
     const userActivity = getUserActivity(id);
     const userAverageSession = getAverageSession(id);
     const userPerformance = getUserPerformance(id);
@@ -44,8 +43,12 @@ export default function Profil() {
         return <div>Une erreur est apparue</div>;
     }
     if(isLoading){
-        return (<div>Loader</div>);
+        return (<div>Loading....</div>);
     }
+    if(!data){
+        return <div>En attente de données....</div>
+    }
+   // console.log("data score :", data.data.score)
     return (
         <div className="profil">
             <Header />
@@ -53,12 +56,12 @@ export default function Profil() {
                 <AsideNav />
                 <div className="content">
                     
-                        <h1 className="contentTitle">
-                            Bonjour                 
-                            <span className="contentTitle-span">
+                    <h1 className="contentTitle">
+                        Bonjour                 
+                        <span className="contentTitle-span">
                             {data.data.userInfos.firstName}
-                            </span>
-                        </h1>
+                        </span>
+                    </h1>
                     <p className="contentTitle">
                         Feliciation! vous avez explosé vos objectifs hier 👋
                     </p>
@@ -93,15 +96,15 @@ export default function Profil() {
                                 <div className="contentPie">
                                     <p className="contentPieTitle">Score</p>
                                     <div className="contentPieLabel">
-                                        {/* <p>{score} %</p> */}
+                                        <p>{data.data.score} %</p>
                                         <p>de votre objectif</p>
                                     </div>
-                                    {/* <ChartPie score={score} /> */}
+                                    <ChartPie score={data.data.score} />
                                 </div>
                             </div>
                         </div>
                         
-                        {/* <div className="contentAside">
+                        <div className="contentAside">
                             <div className="contentAside-elt">
                                 <div className="contentAside-elt-icon red">
                                     <img src={cal} alt="" />
@@ -109,7 +112,7 @@ export default function Profil() {
 
                                 <div>
                                     <div className="contentAside-elt-tag">
-                                        {user.keyData.calorieCount}
+                                        {data.data.keyData.calorieCount}
                                     </div>
                                     <div>Calories</div>
                                 </div>
@@ -121,7 +124,7 @@ export default function Profil() {
 
                                 <div>
                                     <div className="contentAside-elt-tag">
-                                        {user.keyData.proteinCount}
+                                        {data.data.keyData.proteinCount}
                                     </div>
                                     <div>Protéines</div>
                                 </div>
@@ -132,7 +135,7 @@ export default function Profil() {
                                 </div>
                                 <div>
                                     <div className="contentAside-elt-tag">
-                                        {user.keyData.carbohydrateCount}
+                                        {data.data.keyData.carbohydrateCount}
                                     </div>
                                     <div>Glucides</div>
                                 </div>
@@ -146,12 +149,12 @@ export default function Profil() {
 
                                 <div>
                                     <div className="contentAside-elt-tag">
-                                        {user.keyData.lipidCount}
+                                        {data.data.keyData.lipidCount}
                                     </div>
                                     <div>Lipides</div>
                                 </div>
                             </div>
-                        </div> */}
+                        </div> 
                     </div>
                 </div>
             </main>
