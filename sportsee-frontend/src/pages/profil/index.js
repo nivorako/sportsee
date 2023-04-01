@@ -1,5 +1,5 @@
-import Header from "../../components/header";
-import AsideNav from "../../components/asideNav";
+import Header from "../../common/header";
+import AsideNav from "../../common/asideNav";
 
 import ChartLine from "../../components/chartLine";
 import ChartBar from "../../components/chartBar";
@@ -23,7 +23,8 @@ import lipide2 from "../../assets/lipide2.png";
 import lipide3 from "../../assets/lipide3.png";
 
 import { useParams } from "react-router-dom";
-import  useFetch  from "../../services/hooks/fetchApi";
+import  {FetchUserData}  from "../../services/hooks/fetchApi";
+import { AsideInfosGroup } from "../../components/AsideInfosGroup/AsideInfosGroup";
 
 /**
  * 
@@ -32,13 +33,11 @@ import  useFetch  from "../../services/hooks/fetchApi";
 
 export default function Profil() {
     const { id } = useParams();
-    const {data, isLoading, error} = useFetch(id);
-    //const user = getUserData(id);
+    const {data, isLoading, error} = FetchUserData(id, "firstName");
     const userActivity = getUserActivity(id);
     const userAverageSession = getAverageSession(id);
     const userPerformance = getUserPerformance(id);
-    //const score = user.score * 100;
-    
+
     if(error){
         return <div>Une erreur est apparue</div>;
     }
@@ -48,7 +47,7 @@ export default function Profil() {
     if(!data){
         return <div>En attente de données....</div>
     }
-   // console.log("data score :", data.data.score)
+    //console.log("data:", data)
     return (
         <div className="profil">
             <Header />
@@ -59,14 +58,14 @@ export default function Profil() {
                     <h1 className="contentTitle">
                         Bonjour                 
                         <span className="contentTitle-span">
-                            {data.data.userInfos.firstName}
+                            {data}
                         </span>
                     </h1>
                     <p className="contentTitle">
                         Feliciation! vous avez explosé vos objectifs hier 👋
                     </p>
                     <div className="contentItems">
-                        <div className="contentChart">
+                        {/* <div className="contentChart">
                             <section className="chartBar">
                                 <div className="chartBar__title">
                                     <h2>Activité quotidienne</h2>
@@ -96,15 +95,15 @@ export default function Profil() {
                                 <div className="contentPie">
                                     <p className="contentPieTitle">Score</p>
                                     <div className="contentPieLabel">
-                                        <p>{data.data.score} %</p>
+                                        <p>{data.data.score*100} %</p>
                                         <p>de votre objectif</p>
                                     </div>
-                                    <ChartPie score={data.data.score} />
+                                    <ChartPie score={data.data.score*100} />
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         
-                        <div className="contentAside">
+                        {/* <div className="contentAside">
                             <div className="contentAside-elt">
                                 <div className="contentAside-elt-icon red">
                                     <img src={cal} alt="" />
@@ -154,12 +153,17 @@ export default function Profil() {
                                     <div>Lipides</div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>  */}
+                        <div className="contentChart">
+                            hello chart
+                        </div>
+                        <div className="contentAside">
+                            <AsideInfosGroup id={id}/>
+                        </div>
+                        
                     </div>
                 </div>
             </main>
         </div>
-    );
-   
-    
+    );   
 }

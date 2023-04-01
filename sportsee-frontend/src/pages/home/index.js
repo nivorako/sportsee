@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import AsideNav from "../../components/asideNav";
-import Header from "../../components/header";
+import AsideNav from "../../common/asideNav";
+import Header from "../../common/header";
 
 import { getUserData } from "../../services/mock/mockedApi";
 

@@ -42,7 +42,7 @@ export default function ChartLine(props) {
                     strokeWidth={1}
                     dot={false}
                 />
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip content={<CustomTooltip />} position={{y:0}} />
                 <XAxis
                     dataKey="day"
                     stroke="white"

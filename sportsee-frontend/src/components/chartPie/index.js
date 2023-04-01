@@ -9,7 +9,7 @@ export default function ChartPie(props) {
         { name: "showData", value: props.score, fillColor: "red" },
         {
             name: "hideData",
-            value: 1 - props.score,
+            value: 100 - props.score,
             fillColor: "transparent",
         },
     ];
