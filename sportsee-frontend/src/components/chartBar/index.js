@@ -1,4 +1,5 @@
 import React from "react";
+import { getInitialAverageSession, FetchUserData } from "../../services/hooks/fetchApi";
 import {
     BarChart,
     Bar,
@@ -13,6 +14,8 @@ import PropTypes from "prop-types";
 import "./chartBar.css";
 
 export default function ChartBar(props) {
+    const init = getInitialAverageSession();
+    const{userData, isLoading, error} = FetchUserData();
     const [data, setData] = useState([]);
     useEffect(() => {
         setData(props.userActivity);

@@ -27,7 +27,6 @@ function extractDataByService(data, service){
               return getFirstName(data);
                 break;
             case "key-data":
-                //console.log("datakey: ", data)
                 return getKeyData(data);
                 break;
         }
@@ -41,6 +40,42 @@ function getFirstName(data){
 function getKeyData(data){
     return data.data.keyData;
 }
+
+export function getInitialAverageSession(){
+const averageSessions = [
+    {
+        day: "L",
+        sessionLength: 0,
+    },
+    {
+        day: "M",
+        sessionLength: 0,
+    },
+    {
+        day: "M",
+        sessionLength: 0,
+    },
+    {
+        day: "J",
+        sessionLength: 0,
+    },
+    {
+        day: "V",
+        sessionLength: 0,
+    },
+    {
+        day: "S",
+        sessionLength: 0,
+    },
+    {
+        day: "D",
+        sessionLength: 0,
+    },
+    ];
+
+    return averageSessions;
+}
+
 
 export function FetchUserData(id, service) { 
     const [data, setData] = useState(null);

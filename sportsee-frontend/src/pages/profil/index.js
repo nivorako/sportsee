@@ -65,7 +65,7 @@ export default function Profil() {
                         Feliciation! vous avez explosé vos objectifs hier 👋
                     </p>
                     <div className="contentItems">
-                        {/* <div className="contentChart">
+                    {/* <div className="contentChart">
                             <section className="chartBar">
                                 <div className="chartBar__title">
                                     <h2>Activité quotidienne</h2>
@@ -155,7 +155,16 @@ export default function Profil() {
                             </div>
                         </div>  */}
                         <div className="contentChart">
-                            hello chart
+                            <section className="chartBar">
+                            <div className="chartBar__title">
+                                    <h2>Activité quotidienne</h2>
+                                    <ul>
+                                        <li>poids (kg)</li>
+                                        <li>Calories brulées (kcal)</li>
+                                    </ul>
+                                </div>
+                                <ChartBar userActivity={userActivity} />
+                            </section>
                         </div>
                         <div className="contentAside">
                             <AsideInfosGroup id={id}/>
