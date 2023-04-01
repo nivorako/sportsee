@@ -5,7 +5,7 @@ const baseUrl = "http://localhost:3000/user";
 
 function getEndpointByService(id, service){
     switch(service){
-        case "":
+        case "firstName":
             return `${baseUrl}/${id}`;
             break;
         case "activity":
@@ -17,6 +17,8 @@ function getEndpointByService(id, service){
         case "performance":
             return `${baseUrl}/${id}/performance`;
             break;
+        case "key-data":
+            return `${baseUrl}/${id}`;
     }
 }
 
@@ -29,8 +31,34 @@ function extractDataByService(data, service){
             case "key-data":
                 return getKeyData(data);
                 break;
+            case "average-sessions":
+                return getAverageSessions(data);
+                break;
+            case "activity":
+                return getActivity(data);   
         }
     }
+}
+
+function getActivity(data){
+    const activities = []
+    console.log("data :", data.data.sessions)
+    for(let item of data.data.sessions){
+        const [yyyy, mm, dd] = item.day.split("-");
+        console.log("toto :", mm);
+    }
+    if(data){
+
+    }
+    return data
+}
+
+function getAverageSessions(data){
+    let averageSessions = getInitialAverageSession()
+    for (let index in averageSessions){
+        averageSessions[index].sessionLength = data.data.sessions[index].sessionLength;
+    }  
+    return averageSessions;
 }
 
 function getFirstName(data){
@@ -42,7 +70,7 @@ function getKeyData(data){
 }
 
 export function getInitialAverageSession(){
-const averageSessions = [
+const averageSession = [
     {
         day: "L",
         sessionLength: 0,
@@ -73,7 +101,7 @@ const averageSessions = [
     },
     ];
 
-    return averageSessions;
+    return averageSession;
 }
 
 
@@ -82,7 +110,7 @@ export function FetchUserData(id, service) {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
 
-    const endpoint = getEndpointByService(id, "");
+    const endpoint = getEndpointByService(id, service);
 
     useEffect(()=> {
         setIsLoading(true);

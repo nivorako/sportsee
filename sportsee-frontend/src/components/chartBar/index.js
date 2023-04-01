@@ -1,5 +1,5 @@
 import React from "react";
-import { getInitialAverageSession, FetchUserData } from "../../services/hooks/fetchApi";
+import {  FetchUserData } from "../../services/hooks/fetchApi";
 import {
     BarChart,
     Bar,
@@ -14,12 +14,13 @@ import PropTypes from "prop-types";
 import "./chartBar.css";
 
 export default function ChartBar(props) {
-    const init = getInitialAverageSession();
-    const{userData, isLoading, error} = FetchUserData();
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        setData(props.userActivity);
-    }, [props.userActivity]);
+    const{id} = props;
+    
+    const{data, isLoading, error} = FetchUserData(id, "activity");
+    //const [data, setData] = useState([]);
+    // useEffect(() => {
+    //     setData(props.userActivity);
+    // }, [props.userActivity]);
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
@@ -33,6 +34,16 @@ export default function ChartBar(props) {
         return null;
     };
 
+    if(error){
+        return <div>Une erreur est apparue</div>;
+    }
+    if(isLoading){
+        return (<div>Loading....</div>);
+    }
+    if(!data){
+        return <div>en attente de données</div>
+    }
+    //console.log("data :", data.data.sessions)
     return (
         <ResponsiveContainer width="100%" height="90%">
             <BarChart
@@ -69,6 +80,6 @@ export default function ChartBar(props) {
     );
 }
 
-ChartBar.propTypes = {
-    userActivity: PropTypes.array.isRequired,
-};
+// ChartBar.propTypes = {
+//     userActivity: PropTypes.array.isRequired,
+// };

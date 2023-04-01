@@ -163,7 +163,7 @@ export default function Profil() {
                                         <li>Calories brulées (kcal)</li>
                                     </ul>
                                 </div>
-                                <ChartBar userActivity={userActivity} />
+                                <ChartBar id={id} />
                             </section>
                         </div>
                         <div className="contentAside">
