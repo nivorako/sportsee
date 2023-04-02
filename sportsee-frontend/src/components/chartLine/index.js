@@ -17,7 +17,6 @@ import "./chartLine.css";
 export default function ChartLine(props) {
     const {id} = props;
     const{ data, isLoading, error} = FetchUserData(id, "average-sessions")
-
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (

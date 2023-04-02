@@ -2,14 +2,26 @@ import React from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 import PropTypes from "prop-types";
+import { FetchUserData } from "../../services/hooks/fetchApi";
 
 export default function ChartPie(props) {
-    //console.log('props :', props.score)
-    const data = [
-        { name: "showData", value: props.score, fillColor: "red" },
+    const {id} = props;
+    const{ data, isLoading, error} = FetchUserData(id, "score")
+   
+    if(error){
+        return <div>Une erreur est apparue</div>;
+    }
+    if(isLoading){
+        return (<div>Loading....</div>);
+    }
+    if(!data){
+        return <div>en attente de données</div>;
+    }
+    const dataPie = [
+        { name: "showData", value: data, fillColor: "red" },
         {
             name: "hideData",
-            value: 100 - props.score,
+            value: 1 - data,
             fillColor: "transparent",
         },
     ];
@@ -17,7 +29,7 @@ export default function ChartPie(props) {
         <ResponsiveContainer>
             <PieChart width={400} height={400}>
                 <Pie
-                    data={data}
+                    data={dataPie}
                     cx="50%"
                     cy="50%"
                     innerRadius={60}
@@ -27,7 +39,7 @@ export default function ChartPie(props) {
                     fill="888000"
                     dataKey="value"
                 >
-                    {data.map((entry, index) => (
+                    {dataPie.map((entry, index) => (
                         <Cell
                             key={index}
                             fill={entry.fillColor}
@@ -41,5 +53,5 @@ export default function ChartPie(props) {
 }
 
 ChartPie.propTypes = {
-    score: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
 };

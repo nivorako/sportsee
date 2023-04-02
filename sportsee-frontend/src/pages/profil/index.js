@@ -18,6 +18,7 @@ import "./profil.css";
 import { useParams } from "react-router-dom";
 import  {FetchUserData}  from "../../services/hooks/fetchApi";
 import { AsideInfos } from "../../components/asideInfos";
+import { ChartPieCard } from "../../components/chartPieCard";
 
 /**
  * 
@@ -168,15 +169,9 @@ export default function Profil() {
                                 </div>
                                 
                                 <div className="contentRadar">
-
+                                    <ChartRadar id={id} />
                                 </div>
-                                <div className="contentPie">
-                                    <p className="contentPieTitle">Score</p>
-                                    <div className="contentPieLabel">
-                                        <p>data</p>
-                                        <p>de votre objectif</p>
-                                    </div>                                   
-                                </div>
+                                <ChartPieCard id={id} />
                             </div>
                         </div>
                         <div className="contentAside">

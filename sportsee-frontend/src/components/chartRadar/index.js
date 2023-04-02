@@ -7,15 +7,24 @@ import {
     ResponsiveContainer,
     CartesianGrid,
 } from "recharts";
-import { useState, useEffect } from "react";
+
+import { FetchUserData } from "../../services/hooks/fetchApi";
 
 import PropTypes from "prop-types";
 
 export default function ChartRadar(props) {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        setData(props.userPerformance);
-    }, [props.userPerformance]);
+    const {id} = props;
+    const{ data, isLoading, error} = FetchUserData(id, "performance");
+
+    if(error){
+        return <div>Une erreur est apparue</div>;
+    }
+    if(isLoading){
+        return (<div>Loading....</div>);
+    }
+    if(!data){
+        return <div>en attente de données</div>;
+    }
 
     return (
         <ResponsiveContainer width="100%" height="100%" >
@@ -50,5 +59,5 @@ export default function ChartRadar(props) {
 }
 
 ChartRadar.propTypes = {
-    userPerformance: PropTypes.array.isRequired,
+    id: PropTypes.string.isRequired,
 };

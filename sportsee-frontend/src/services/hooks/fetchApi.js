@@ -19,6 +19,9 @@ function getEndpointByService(id, service){
             break;
         case "key-data":
             return `${baseUrl}/${id}`;
+            break;
+        case "score": 
+            return `${baseUrl}/${id}`;
     }
 }
 
@@ -35,9 +38,38 @@ function extractDataByService(data, service){
                 return getAverageSessions(data);
                 break;
             case "activity":
-                return getActivity(data);   
+                return getActivity(data);
+                break;
+            case "performance":
+                return getUserPerformance(data);   
+                break;
+            case "score": 
+                return getUserScore(data);
         }
     }
+}
+
+function getUserScore(data){
+    return data.data.score;
+}
+
+function getUserPerformance(data){
+    let perf = []
+    const initialPerf = [
+        { kind: "Cardio", value: 0 },
+        { kind: "Energie", value: 0 },
+        { kind: "Endurance", value: 0 },
+        { kind: "Force", value: 0 },
+        { kind: "Vitesse", value: 0 },
+        { kind: "Intensité", value: 0 }
+    ]
+    for (let item of data.data.data) {
+        perf.push({
+            kind: initialPerf[item.kind - 1].kind,
+            value: item.value,
+        });
+    }
+    return perf;
 }
 
 function getActivity(data){
