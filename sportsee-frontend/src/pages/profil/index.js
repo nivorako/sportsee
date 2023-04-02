@@ -41,7 +41,7 @@ export default function Profil() {
     if(!data){
         return <div>En attente de données....</div>
     }
-    //console.log("data:", data)
+    
     return (
         <div className="profil">
             <Header />
@@ -59,95 +59,6 @@ export default function Profil() {
                         Feliciation! vous avez explosé vos objectifs hier 👋
                     </p>
                     <div className="contentItems">
-                    {/* <div className="contentChart">
-                            <section className="chartBar">
-                                <div className="chartBar__title">
-                                    <h2>Activité quotidienne</h2>
-                                    <ul>
-                                        <li>poids (kg)</li>
-                                        <li>Calories brulées (kcal)</li>
-                                    </ul>
-                                </div>
-                                <ChartBar userActivity={userActivity} />
-                            </section>
-                            <div className="contentChartGallery">
-                                <div className="contentLine">
-                                    <div className="contentLineTitle">
-                                        <p>Durée moyenne </p>
-                                        <p>des sessions</p>
-                                    </div>
-
-                                    <ChartLine
-                                        userAverageSession={userAverageSession}
-                                    />
-                                </div>
-                                <div className="contentRadar">
-                                    <ChartRadar
-                                        userPerformance={userPerformance}
-                                    />
-                                </div>
-                                <div className="contentPie">
-                                    <p className="contentPieTitle">Score</p>
-                                    <div className="contentPieLabel">
-                                        <p>{data.data.score*100} %</p>
-                                        <p>de votre objectif</p>
-                                    </div>
-                                    <ChartPie score={data.data.score*100} />
-                                </div>
-                            </div>
-                        </div> */}
-                        
-                        {/* <div className="contentAside">
-                            <div className="contentAside-elt">
-                                <div className="contentAside-elt-icon red">
-                                    <img src={cal} alt="" />
-                                </div>
-
-                                <div>
-                                    <div className="contentAside-elt-tag">
-                                        {data.data.keyData.calorieCount}
-                                    </div>
-                                    <div>Calories</div>
-                                </div>
-                            </div>
-                            <div className="contentAside-elt">
-                                <div className="contentAside-elt-icon blue">
-                                    <img src={proteine} alt=""></img>
-                                </div>
-
-                                <div>
-                                    <div className="contentAside-elt-tag">
-                                        {data.data.keyData.proteinCount}
-                                    </div>
-                                    <div>Protéines</div>
-                                </div>
-                            </div>
-                            <div className="contentAside-elt">
-                                <div className="contentAside-elt-icon brown">
-                                    <img src={glucide} alt=""></img>
-                                </div>
-                                <div>
-                                    <div className="contentAside-elt-tag">
-                                        {data.data.keyData.carbohydrateCount}
-                                    </div>
-                                    <div>Glucides</div>
-                                </div>
-                            </div>
-                            <div className="contentAside-elt">
-                                <div className="contentAside-elt-icon fuschia">
-                                    <img src={lipide} alt="" />
-                                    <img src={lipide2} alt="" />
-                                    <img src={lipide3} alt="" />
-                                </div>
-
-                                <div>
-                                    <div className="contentAside-elt-tag">
-                                        {data.data.keyData.lipidCount}
-                                    </div>
-                                    <div>Lipides</div>
-                                </div>
-                            </div>
-                        </div>  */}
                         <div className="contentChart">
                             <section className="chartBar">
                                 <div className="chartBar__title">

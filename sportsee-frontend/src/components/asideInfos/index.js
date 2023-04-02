@@ -8,12 +8,20 @@ import lipide from "../../assets/lipide.png";
 import lipide2 from "../../assets/lipide2.png";
 import lipide3 from "../../assets/lipide3.png";
 
+import PropTypes from "prop-types";
+
 import "./asideInfos.css";
+
+/**
+ * 
+ * @param {string} props 
+ * @returns 
+ */
 
 export function AsideInfos(props){
     const {id} = props
     const {data, isLoading, error} = FetchUserData(id, "key-data");
-    //console.log("data in key:", data.calorieCount)
+   
     if(error){
         return <div>Une erreur est apparue</div>;
     }
@@ -76,4 +84,8 @@ export function AsideInfos(props){
             </div>
         </div>
     )
+}
+
+AsideInfos.propTypes = {
+    id: PropTypes.string.isRequired,
 }

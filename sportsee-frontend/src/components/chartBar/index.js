@@ -41,7 +41,7 @@ export default function ChartBar(props) {
     if(!data){
         return <div>en attente de données</div>
     }
-    //console.log("data :", data)
+    
     return (
         <ResponsiveContainer width="100%" height="90%">
             <BarChart
@@ -61,7 +61,6 @@ export default function ChartBar(props) {
                     yAxisId="kg" 
                     dataKey="poids"
                     orientation="right" 
-                    domain={[69, 70]}
                     tickCount={3}
                 />
                 <YAxis 
