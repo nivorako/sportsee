@@ -15,13 +15,6 @@ import {
 
 import "./profil.css";
 
-import cal from "../../assets/cal.png";
-import proteine from "../../assets/proteine.png";
-import glucide from "../../assets/glucide.png";
-import lipide from "../../assets/lipide.png";
-import lipide2 from "../../assets/lipide2.png";
-import lipide3 from "../../assets/lipide3.png";
-
 import { useParams } from "react-router-dom";
 import  {FetchUserData}  from "../../services/hooks/fetchApi";
 import { AsideInfos } from "../../components/asideInfos";
