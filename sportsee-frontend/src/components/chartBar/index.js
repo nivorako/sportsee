@@ -61,7 +61,8 @@ export default function ChartBar(props) {
                     yAxisId="kg" 
                     dataKey="poids"
                     orientation="right" 
-                    
+                    domain={[69, 70]}
+                    tickCount={3}
                 />
                 <YAxis 
                     yAxisId="cal" 

@@ -161,10 +161,12 @@ export default function Profil() {
                             <div className="contentChartGallery">
                                 <div className="contentLine">
                                     <div className="contentLineTitle">
-                                            <p>Durée moyenne </p>
-                                            <p>des sessions</p>
-                                        </div>
+                                        <p>Durée moyenne </p>
+                                        <p>des sessions</p>
                                     </div>
+                                    <ChartLine id={id} />
+                                </div>
+                                
                                 <div className="contentRadar">
 
                                 </div>
@@ -173,8 +175,7 @@ export default function Profil() {
                                     <div className="contentPieLabel">
                                         <p>data</p>
                                         <p>de votre objectif</p>
-                                    </div>
-                                    
+                                    </div>                                   
                                 </div>
                             </div>
                         </div>

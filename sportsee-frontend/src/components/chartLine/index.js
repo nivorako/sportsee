@@ -7,16 +7,16 @@ import {
     Tooltip,
     ResponsiveContainer,
 } from "recharts";
+
+import { FetchUserData } from "../../services/hooks/fetchApi";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import "./chartLine.css";
 
 export default function ChartLine(props) {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        setData(props.userAverageSession);
-    }, [props.userAverageSession]);
+    const {id} = props;
+    const{ data, isLoading, error} = FetchUserData(id, "average-sessions")
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
@@ -28,6 +28,16 @@ export default function ChartLine(props) {
         }
         return null;
     };
+
+    if(error){
+        return <div>Une erreur est apparue</div>;
+    }
+    if(isLoading){
+        return (<div>Loading....</div>);
+    }
+    if(!data){
+        return <div>en attente de données</div>
+    }
 
     return (
         <ResponsiveContainer width="100%" height="100%">
@@ -56,5 +66,5 @@ export default function ChartLine(props) {
 }
 
 ChartLine.propTypes = {
-    userAverageSession: PropTypes.array.isRequired,
+    id: PropTypes.string.isRequired,
 };

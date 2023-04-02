@@ -70,7 +70,7 @@ function getKeyData(data){
     return data.data.keyData;
 }
 
-export function getInitialAverageSession(){
+function getInitialAverageSession(){
 const averageSession = [
     {
         day: "L",
