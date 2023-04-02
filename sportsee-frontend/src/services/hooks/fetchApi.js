@@ -42,15 +42,16 @@ function extractDataByService(data, service){
 
 function getActivity(data){
     const activities = []
-    console.log("data :", data.data.sessions)
     for(let item of data.data.sessions){
         const [yyyy, mm, dd] = item.day.split("-");
-        console.log("toto :", mm);
+        activities.push({
+            name: dd.slice(1),
+            poids: item.kilogram,
+            calories: item.calories
+        })
     }
-    if(data){
 
-    }
-    return data
+    return activities;
 }
 
 function getAverageSessions(data){

@@ -7,8 +7,10 @@ import {
     CartesianGrid,
     Tooltip,
     ResponsiveContainer,
+    YAxis,
+   
 } from "recharts";
-import { useEffect, useState } from "react";
+
 import PropTypes from "prop-types";
 
 import "./chartBar.css";
@@ -17,10 +19,6 @@ export default function ChartBar(props) {
     const{id} = props;
     
     const{data, isLoading, error} = FetchUserData(id, "activity");
-    //const [data, setData] = useState([]);
-    // useEffect(() => {
-    //     setData(props.userActivity);
-    // }, [props.userActivity]);
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
@@ -43,7 +41,7 @@ export default function ChartBar(props) {
     if(!data){
         return <div>en attente de données</div>
     }
-    //console.log("data :", data.data.sessions)
+    //console.log("data :", data)
     return (
         <ResponsiveContainer width="100%" height="90%">
             <BarChart
@@ -54,11 +52,23 @@ export default function ChartBar(props) {
                     top: 70,
                     right: 30,
                     left: 20,
-                    bottom: 0,
+                    bottom: 20,
                 }}
             >
                 <CartesianGrid strokeDasharray="1 1" vertical="" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="name" dy={20}/>
+                <YAxis 
+                    yAxisId="kg" 
+                    dataKey="poids"
+                    orientation="right" 
+                    
+                />
+                <YAxis 
+                    yAxisId="cal" 
+                    dataKey="calories"
+                    orientation="right" 
+                    hide="true"
+                />
 
                 <Tooltip content={<CustomTooltip />} />
                 <Bar
@@ -67,6 +77,7 @@ export default function ChartBar(props) {
                     fill="red"
                     barSize={7}
                     radius={[10, 10, 0, 0]}
+                    margin={{top: 10, bottom: 50}}
                 />
                 <Bar
                     yAxisId="cal"
@@ -80,6 +91,6 @@ export default function ChartBar(props) {
     );
 }
 
-// ChartBar.propTypes = {
-//     userActivity: PropTypes.array.isRequired,
-// };
+ChartBar.propTypes = {
+     id: PropTypes.string.isRequired,
+};

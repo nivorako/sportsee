@@ -1,7 +1,9 @@
 import React from "react";
 import { FetchUserData } from "../../services/hooks/fetchApi";
 
-export function AsideInfosGroup(props){
+import "./asideInfos.css";
+
+export function AsideInfos(props){
     const {id} = props
     const {data, isLoading, error} = FetchUserData(id, "key-data");
     //console.log("data in key:", data.calorieCount)
@@ -15,17 +17,17 @@ export function AsideInfosGroup(props){
         return <div>En attente de données....</div>
     }
     return (
-        <div className="asideInfosGroup">
-            <div className="cal">
+        <div className="asideInfos">
+            <div className="asideInfos-elt">
                 {data.calorieCount}
             </div>
-            <div className="protein">
+            <div  className="asideInfos-elt">
                 {data.proteinCount}
             </div>
-            <div className="glucid">
+            <div  className="asideInfos-elt">
                 {data.carbohydrateCount}
             </div>
-            <div className="lipid">
+            <div  className="asideInfos-elt">
                 {data.lipidCount}
             </div>
         </div>

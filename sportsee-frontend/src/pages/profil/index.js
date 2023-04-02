@@ -24,7 +24,7 @@ import lipide3 from "../../assets/lipide3.png";
 
 import { useParams } from "react-router-dom";
 import  {FetchUserData}  from "../../services/hooks/fetchApi";
-import { AsideInfosGroup } from "../../components/AsideInfosGroup/AsideInfosGroup";
+import { AsideInfos } from "../../components/asideInfos";
 
 /**
  * 
@@ -156,7 +156,7 @@ export default function Profil() {
                         </div>  */}
                         <div className="contentChart">
                             <section className="chartBar">
-                            <div className="chartBar__title">
+                                <div className="chartBar__title">
                                     <h2>Activité quotidienne</h2>
                                     <ul>
                                         <li>poids (kg)</li>
@@ -165,9 +165,28 @@ export default function Profil() {
                                 </div>
                                 <ChartBar id={id} />
                             </section>
+                            <div className="contentChartGallery">
+                                <div className="contentLine">
+                                    <div className="contentLineTitle">
+                                            <p>Durée moyenne </p>
+                                            <p>des sessions</p>
+                                        </div>
+                                    </div>
+                                <div className="contentRadar">
+
+                                </div>
+                                <div className="contentPie">
+                                    <p className="contentPieTitle">Score</p>
+                                    <div className="contentPieLabel">
+                                        <p>data</p>
+                                        <p>de votre objectif</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
                         <div className="contentAside">
-                            <AsideInfosGroup id={id}/>
+                            <AsideInfos id={id}/>
                         </div>
                         
                     </div>
